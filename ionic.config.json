@@ -1,0 +1,8 @@
+{
+  "name": "tp-pizzas",
+  "app_id": "5e3dab7e",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}

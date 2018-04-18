@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{ pizza.name }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-card>
+    <img src="data:image/png;base64,{{pizza.img}}" alt="">
+    <ion-card-content>
+      <ion-card-title>
+        {{ pizza.name }} - {{ pizza.price }} €
+      </ion-card-title>
+      <p>
+        {{ pizza.description }}
+      </p>
+      <p *ngIf="pizza.ingredients.length > 0"><b>Ingrédients :</b></p>
+      <ul>
+        <li *ngFor="let ingredient of pizza.ingredients">
+          {{ ingredient.name }} - {{ ingredient.weight }} - {{ ingredient.price }} €
+        </li>
+      </ul>
+    </ion-card-content>
+  </ion-card>
+
+
+</ion-content>

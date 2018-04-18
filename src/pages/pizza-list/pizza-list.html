@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Mes derniers signalements
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content class="page-pizza-list">
+
+  <ion-fab *ngIf="adminMode" top right edge>
+    <button ion-fab mini [navPush]="pizzaFormPage"><ion-icon name="add"></ion-icon></button>
+  </ion-fab>
+
+  <ion-list *ngIf="adminMode">
+    <ion-item  *ngFor="let pizza of listPizza" (click)="presentActionSheet(pizza)">
+      <ion-thumbnail item-start>
+        <img *ngIf="pizza.img" src="data:image/png;base64,{{pizza.img}}"/>
+        <img *ngIf="!pizza.img" src="../../assets/imgs/img-pizza.jpg"/>
+      </ion-thumbnail>
+      <h2>{{pizza.name}}</h2>
+      <p>{{pizza.description}}</p>
+      <ion-icon clear item-end name="ios-list" ></ion-icon>
+
+    </ion-item>
+  </ion-list>
+
+</ion-content>

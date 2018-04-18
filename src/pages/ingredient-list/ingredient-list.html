@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Les Ingrédients
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content class="page-ingredient-list">
+
+
+
+  <div *ngIf="!adminMode">
+    <ion-card  *ngFor="let ingredient of listIngredient" [navPush]="ingredientDetailPage" [navParams]="ingredient">
+
+      <div class="card-title">{{ingredient.name}}</div>
+      <div class="card-subtitle"> {{ingredient.description}}</div>
+
+    </ion-card>
+  </div>
+
+
+
+  <ion-fab *ngIf="adminMode" top right edge>
+    <button ion-fab mini [navPush]="ingredientFormPage"><ion-icon name="add"></ion-icon></button>
+  </ion-fab>
+
+  <ion-list *ngIf="adminMode">
+    <ion-item  *ngFor="let ingredient of listIngredient" (click)="presentActionSheet(ingredient)">
+      <h2>{{ingredient.name}}</h2>
+      <p>{{ingredient.description}}</p>
+      <ion-icon clear item-end name="ios-list" ></ion-icon>
+    </ion-item>
+  </ion-list>
+
+
+
+
+
+</ion-content>
